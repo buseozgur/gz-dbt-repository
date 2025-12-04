@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        products_id,
+        SAFE_CAST(products_id AS INT64) AS products_id,
         SAFE_CAST(purchse_price AS FLOAT64) AS purchase_price
 
     from source

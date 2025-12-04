@@ -11,7 +11,7 @@ renamed as (
     select
         date_date,
         orders_id,
-        pdt_id AS product_id,
+        SAFE_CAST(pdt_id AS INT64) AS products_id,
         revenue,
         quantity
 
