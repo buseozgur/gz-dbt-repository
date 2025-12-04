@@ -9,7 +9,7 @@
     ROUND(SUM(ship_cost),2) AS shipping_cost,
     ROUND(SUM(logcost),2) AS log_cost,
     ROUND(SUM(quantity),2) AS quantity,
-    ROUND(SUM(revenue)/ COUNT(DISTINCT orders_id),2) AS avg_basket
+    ROUND(SUM(revenue)/ NULLIF(COUNT(DISTINCT orders_id),0),2) AS avg_basket
     FROM {{ref("int_orders_operational")}}
     GROUP BY date_date
     ORDER BY date_date DESC
