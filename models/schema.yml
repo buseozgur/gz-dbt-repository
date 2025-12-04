@@ -94,3 +94,19 @@ models:
           column_name: "(campaign_key || '-' || date_date)"
   - name: int_campaigns_day
     description: data from campaigns total for day
+    columns:
+      - name: ads_cost
+        description: campaign costs
+        tests:
+          - not_null
+  - name: finance_campaigns_day
+    description: global kpi
+    columns:
+      - name: ads_margin
+        description: operational_margin - ads_cost
+        tests:
+          - not_null
+      - name: average_basket
+        description: her gün için ortalama sepet tutarı
+        tests:
+          - not_null
