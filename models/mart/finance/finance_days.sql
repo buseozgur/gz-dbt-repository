@@ -7,6 +7,7 @@
     ROUND(SUM(purchase_cost),2) AS purchase_cost,
     ROUND(SUM(ship_cost),2) AS shipping_cost,
     ROUND(SUM(logcost),2) AS log_cost,
+    ROUND(SUM(shipping_fee),2) AS shipping_fee,
     ROUND(SUM(quantity),2) AS quantity,
     ROUND(SUM(revenue)/ NULLIF(COUNT(DISTINCT orders_id),0),2) AS avg_basket
     FROM {{ref("int_orders_operational")}}
